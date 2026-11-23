@@ -1,5 +1,5 @@
+# AI 성격
 from pydantic import BaseModel
-
 
 class PersonalityTraits(BaseModel):
       kindness: int = 85
