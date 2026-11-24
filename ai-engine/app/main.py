@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 
 # 감정 import
 from app.emotion.engine import emotion_engine
@@ -176,11 +177,23 @@ async def decide_autonomous_action(request: AutonomyRequest):
 # 6. 통합 제어 엔진
 @app.post("/api/chat")
 async def chat(request: ChatRequest):
-      result = ai_orchestrator.process_message(
-            request.message
-      )
+      try:
+            result = await ai_orchestrator.process_message(
+                  request.message
+            )
 
-      return {
-            "status": "success",
-            **result
-      }
+            return {
+                  "status": "success",
+                  **result
+            }
+
+      except Exception as error:
+            print(
+                  f"AI Chat Error: {error}",
+                  flush=True
+            )
+
+            raise HTTPException(
+                  status_code=502,
+                  detail="AI 응답 생성에 실패했습니다."
+            ) from error
