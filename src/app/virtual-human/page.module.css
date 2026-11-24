@@ -1,4 +1,60 @@
-.main h1 {
-      text-align: center;
-      font-size: 18px;
+.container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+}
+
+.title {
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: 700;
+}
+
+.scene {
+      overflow: hidden;
+      border-radius: 12px;
+      background: #f3f3f3;
+}
+
+.chat {
+      margin-top: 20px;
+}
+
+.reply {
+      min-height: 70px;
+      padding: 18px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      background: #f3f3f3;
+      color: #222;
+      line-height: 1.6;
+}
+
+.inputArea {
+      display: flex;
+      gap: 10px;
+}
+
+.inputArea input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+}
+
+.inputArea button {
+      padding: 0 24px;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: white;
+      cursor: pointer;
+}
+
+.inputArea button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
 }
